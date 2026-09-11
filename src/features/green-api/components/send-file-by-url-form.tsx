@@ -74,11 +74,7 @@ export function SendFileByUrlForm() {
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-sm font-medium">Send File By URL</h3>
-
-        <p className="text-sm text-muted-foreground">
-          Send an image, video, audio file, or document using a URL.
-        </p>
+        <h3 className="text-sm font-medium">sendFileByUrl</h3>
       </div>
 
       <form.Field
@@ -89,7 +85,7 @@ export function SendFileByUrlForm() {
 
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor="green-api-file-chat-id">Chat ID</FieldLabel>
+              <FieldLabel htmlFor="green-api-file-chat-id">ID чата</FieldLabel>
 
               <Input
                 id="green-api-file-chat-id"
@@ -115,7 +111,7 @@ export function SendFileByUrlForm() {
 
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor="green-api-file-url">File URL</FieldLabel>
+              <FieldLabel htmlFor="green-api-file-url">URL файла</FieldLabel>
 
               <Input
                 id="green-api-file-url"

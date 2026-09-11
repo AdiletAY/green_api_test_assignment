@@ -37,7 +37,7 @@ export function GreenApiCredentials() {
           return (
             <Field data-invalid={isInvalid}>
               <FieldLabel htmlFor="green-api-form-id-instance">
-                ID Instance
+                idInstance
               </FieldLabel>
 
               <Input
@@ -69,7 +69,7 @@ export function GreenApiCredentials() {
           return (
             <Field data-invalid={isInvalid}>
               <FieldLabel htmlFor="green-api-form-api-token-instance">
-                API Token Instance
+                apiTokenInstance
               </FieldLabel>
 
               <Input
@@ -82,7 +82,7 @@ export function GreenApiCredentials() {
                 }}
                 onBlur={field.handleBlur}
                 aria-invalid={isInvalid}
-                placeholder="Введите API Token Instance"
+                placeholder="Введите apiTokenInstance"
                 type="password"
               />
 

@@ -75,11 +75,7 @@ export function SendMessageForm() {
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-sm font-medium">Send Message</h3>
-
-        <p className="text-sm text-muted-foreground">
-          Send a text message to a WhatsApp chat.
-        </p>
+        <h3 className="text-sm font-medium">sendMessage</h3>
       </div>
 
       <form.Field
@@ -90,7 +86,7 @@ export function SendMessageForm() {
 
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor="green-api-chat-id">Chat ID</FieldLabel>
+              <FieldLabel htmlFor="green-api-chat-id">ID чата</FieldLabel>
 
               <Input
                 id="green-api-chat-id"
@@ -116,7 +112,7 @@ export function SendMessageForm() {
 
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor="green-api-message">Message</FieldLabel>
+              <FieldLabel htmlFor="green-api-message">Сообщение</FieldLabel>
 
               <Textarea
                 id="green-api-message"
@@ -125,7 +121,7 @@ export function SendMessageForm() {
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
                 aria-invalid={isInvalid}
-                placeholder="Enter your message..."
+                placeholder="Введите текст сообщения..."
                 maxLength={20000}
                 rows={5}
               />

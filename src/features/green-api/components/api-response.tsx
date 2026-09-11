@@ -38,8 +38,15 @@ export function ApiResponse({
       ? JSON.stringify(value, null, 2)
       : null
 
+  const hasResponse =
+    error !== null && error !== undefined
+      ? true
+      : data !== null && data !== undefined
+
   const handleCopy = async () => {
-    if (!json) return
+    if (!json) {
+      return
+    }
 
     await navigator.clipboard.writeText(json)
 
@@ -58,29 +65,8 @@ export function ApiResponse({
             <Code2 className="size-4" />
           </div>
 
-          <CardTitle className="text-base">Response</CardTitle>
+          <CardTitle className="text-base">Ответ API</CardTitle>
         </div>
-
-        {json && !isLoading && (
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={handleCopy}
-          >
-            {copied ? (
-              <>
-                <Check />
-                Copied
-              </>
-            ) : (
-              <>
-                <Clipboard />
-                Copy
-              </>
-            )}
-          </Button>
-        )}
       </CardHeader>
 
       <Separator />
@@ -90,7 +76,7 @@ export function ApiResponse({
           <div className="flex min-h-64 flex-col items-center justify-center gap-3 p-6 text-muted-foreground">
             <Spinner className="size-5" />
 
-            <p className="text-sm">Waiting for API response...</p>
+            <p className="text-sm">Ожидание ответа от API...</p>
           </div>
         ) : error ? (
           <ScrollArea className="h-[500px]">
@@ -98,7 +84,7 @@ export function ApiResponse({
               <code>{json}</code>
             </pre>
           </ScrollArea>
-        ) : data ? (
+        ) : hasResponse ? (
           <ScrollArea className="h-[500px]">
             <pre className="p-6 font-mono text-sm leading-6">
               <code>{json}</code>
@@ -108,11 +94,7 @@ export function ApiResponse({
           <div className="flex min-h-64 flex-col items-center justify-center gap-2 p-6 text-center text-muted-foreground">
             <Code2 className="size-8 opacity-40" />
 
-            <p className="text-sm font-medium">No response yet</p>
-
-            <p className="max-w-xs text-xs">
-              Click one of the GREEN-API methods to see its response here.
-            </p>
+            <p className="text-sm font-medium">Ответа пока нет</p>
           </div>
         )}
       </CardContent>
